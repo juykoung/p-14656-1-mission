@@ -15,7 +15,7 @@ public class Post {
     @Field(type = FieldType.Text)   // 텍스트 검색 -> 전문 검색 가능
     private String title;
     @Field(type = FieldType.Text)
-    private String contents;
+    private String content;
     @Field(type = FieldType.Keyword)   // 키워드 검색 -> 정확한 일치 검색용
     private String author;
 
@@ -23,12 +23,30 @@ public class Post {
             type = FieldType.Date,
             format = DateFormat.date_time
     )
-    private OffsetDateTime createAt;
+    private OffsetDateTime createdAt;
 
     @Field(
             type = FieldType.Date,
             format = DateFormat.date_time
     )
     private OffsetDateTime lastModifiedAt;
+
+    public Post(String title, String content, String author) {
+        this.title = title;
+        this.content = content;
+        this.author = author;
+    }
+
+    @Override
+    public String toString() {
+        return "Post{" +
+                "id='" + id + '\'' +
+                ", title='" + title + '\'' +
+                ", content='" + content + '\'' +
+                ", author='" + author + '\'' +
+                ", createdAt=" + createdAt +
+                ", lastModifiedAt=" + lastModifiedAt +
+                '}';
+    }
 }
 
