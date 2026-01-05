@@ -21,6 +21,7 @@ public class BaseInitData {
         return args -> {
             work1();
             work2();
+            work3();
         };
     }
 
@@ -45,4 +46,11 @@ public class BaseInitData {
         }
     }
 
+    private void work3() {
+        log.debug("단건 Post 조회");
+        for (Post post : postService.findAll()) {
+            Post fetchedPost = postService.findById(post.getId());
+            log.debug("조회된 Post: {}", fetchedPost);
+        }
+    }
 }
