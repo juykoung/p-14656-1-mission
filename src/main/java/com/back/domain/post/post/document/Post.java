@@ -35,6 +35,8 @@ public class Post {
         this.title = title;
         this.content = content;
         this.author = author;
+        this.createdAt = OffsetDateTime.now();
+        this.lastModifiedAt = OffsetDateTime.now();
     }
 
     @Override
